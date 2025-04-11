@@ -382,7 +382,10 @@ transform: scale(1.1); /* Трохи збільшуємо */
     background-image: url('кенія.jpg');
     background-size: cover;
 }
-
+.card-6 {
+    background-image: url('китай.jpg');
+    background-size: cover;
+}
 
 
 

@@ -1,0 +1,600 @@
+/* Загальні стилі */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white; /* світло-блакитний фон */
+}
+
+header {
+    background-color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+     position: relative;
+   
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black; 
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: 0.3s;
+
+}
+nav ul li a:hover {
+    background-color: #4272d9; /* Світло-помаранчевий фон при наведенні */
+    color: black;
+    border-radius: 5px; /* Закруглені кути фону */
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+/* Випадаюче меню */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 2px;
+    background: white; 
+    list-style: none;
+    padding: 0;
+    white-space: nowrap; /* Уникає перенесення тексту */
+    width: max-content;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+.dropdown-menu li {
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 10px;
+    display: block;
+    color: rgb(7, 7, 7);
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #4272d9;
+}
+
+/* Відображення випадаючого меню при наведенні */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+/* Hero секція */
+.hero {
+    position: relative;
+    background-image: url('images/2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    
+}
+.hero h2 {
+    font-size: 44px;
+    color: rgb(3, 2, 5);
+    font-family: 'Poppins', sans-serif;
+    width: 600px;
+    font: bold;
+}
+
+.hero .button {
+    background-color: #e3a42f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hero .button:hover {
+    background-color:  #4272d9;
+}
+ 
+/*-- ще одна шапка можливо тимчасова */
+
+.menu {
+    background-color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+/* Про мене */
+.aboutme {
+    display: flex; /* Вирівнює елементи горизонтально */
+    align-items: center; /* Центрує елементи по вертикалі */
+    background-color: aliceblue;
+}
+.photo-wrapper {
+    display: flex;
+    align-items: center;
+}
+.photo {
+    width: 300px; /* Розмір фото */
+    height: 300px; /* Розмір фото */
+    border-radius: 50%; /* Робить фото круглим */
+    margin-right: 10px; /* Відстань між фото та підписом */
+    margin-left: 20px;
+
+}
+.caption {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+    width: 700px;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.other-photos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Відстань між першим фото і іншими */
+  }
+  .other-photo {
+    width: 100px; /* Розмір додаткових фото */
+    height: 100px; /* Розмір додаткових фото */
+    margin-bottom: 10px; /* Відстань між фото */
+  }
+  .other-photos2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Відстань між першим фото і іншими */
+  }
+
+
+
+/* Основний контент */
+.main-content {
+    padding: 50px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+.main-content h2 {
+    text-align: center;
+    font-size: 32px;
+    font: bold;
+
+}
+/* Контейнер слайдера */
+.slider-container {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.cards-wrapper {
+    overflow: hidden;
+}
+
+.cards-container {
+    display: flex;
+    overflow-x: auto; /* Горизонтальна прокрутка */
+    gap: 15px;
+    transition: transform 0.4s ease-in-out;
+    scroll-behavior: smooth; /* Плавна прокрутка */
+    
+}
+/* Стилі для кнопок-стрілок */
+.slider-btn {
+    background-color: rgba(255, 255, 255, 0.7); /* Напівпрозорий білий фон */
+    color: #333; /* Темний колір тексту */
+    border: none; /* Без обрамлення */
+    padding: 15px; /* Внутрішні відступи */
+    font-size: 30px; /* Збільшений розмір шрифту */
+    cursor: pointer; /* Курсор при наведенні */
+    border-radius: 50%; /* Округла форма кнопок */
+    transition: background-color 0.3s, transform 0.3s ease-in-out; /* Анімація при наведенні */
+    z-index: 10; /* Щоб кнопки були поверх контенту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 1); /* Повністю білий фон при наведенні */
+    transform: scale(1.1); /* Кнопка збільшується при наведенні */
+}
+
+/* Позиція кнопок */
+/* Стиль для лівої кнопки */
+.left-btn {
+    position: absolute; /* Для позиціонування кнопки в лівому верхньому куті */
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%); /* Центруємо по вертикалі */
+}
+
+/* Стиль для правої кнопки */
+.right-btn {
+    position: absolute; /* Для позиціонування кнопки в правому верхньому куті */
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Центруємо по вертикалі */
+}
+/* Для мобільних пристроїв */
+@media (max-width: 768px) {
+    .slider-container {
+        max-width: 90%;
+    }
+
+    .slider-btn {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+
+    .left-btn {
+        left: -20px;
+    }
+
+    .right-btn {
+        right: -20px;
+    }
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; /* Для коректного позиціонування тексту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Білий текст для контрасту */
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 20px 20px 20px 20px;
+    flex-direction: column;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    flex: 0 0 280px; /* Фіксована ширина картки */
+    scroll-snap-align: center;
+}
+/* Затемнення фону (ефект overlay) */
+.card::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Затемнення */
+    transition: background 0.3s ease;
+
+}
+/* Текст завжди поверх затемнення */
+.card h1, .card h2, .card h3, .button {
+    position: relative;
+    z-index: 2;
+
+
+}
+
+/* Ефект при наведенні */
+.card:hover {
+    transform: scale(1.05); /* Збільшення */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Тінь */
+}
+
+.card:hover::after {
+    background: rgba(0, 0, 0, 0.2); /* Менше затемнення */
+}
+
+.card-1 {
+    background-image: url('./images/норвегія.jpg');
+    background-size: cover;
+   
+}
+.button-container {
+    margin-top: auto; /* Зміщує кнопку вниз */
+    text-align: center;
+
+}
+.button {
+    background-color: #e3a42f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.button:hover {
+background-color:  #4272d9;
+transform: scale(1.1); /* Трохи збільшуємо */
+}
+
+
+.card-2 {
+    
+    background-image: url('images/португалія.jpg');
+    background-size: cover;
+}
+.card-3 {
+    background-image: url('images/японія.jpg');
+    background-size: cover;
+}
+.card-4 {
+    background-image: url('images/китай.jpg');
+    background-size: cover;
+}
+.card-5 {
+    background-image: url('images/кенія.jpg');
+    background-size: cover;
+}
+
+
+
+
+
+
+/* Стилі для загального блоку статей */
+.articles-section {
+    padding: 40px 20px;
+    background-color: #f8f9fa; /* Світлий фон */
+    text-align: center;
+}
+
+/* Заголовок */
+.articles-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Контейнер для статей */
+.articles-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+   
+}
+
+/* Окремий блок статті */
+.article {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px);
+}
+
+/* Зображення статті */
+.article img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Контент статті */
+.article-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.article-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #e67e22; /* Помаранчевий заголовок */
+}
+
+.article-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Кнопка "Читати повністю" */
+.read-more {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e67e22;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.read-more:hover {
+    background-color: #d35400;
+}
+
+/* Кнопка "Дивитися всі статті" */
+.all-articles {
+    margin-top: 20px;
+}
+
+.all-articles-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2980b9; /* Синій колір */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.all-articles-btn:hover {
+    background-color: #1f6693;
+}
+
+/* Для мобільних: змінюємо структуру на вертикальну */
+@media (max-width: 768px) {
+    .article {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .article img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .article-content {
+        padding: 20px;
+    }
+}
+
+
+
+/* Стилі для футера */
+footer {
+    background-color: #f8f9fa; /* Світлий фон, що нагадує пісок */
+    color: #333; /* Темний текст для кращої читабельності */
+    padding: 40px 20px; /* Внутрішні відступи */
+    text-align: center; /* Центрування тексту */
+}
+
+/* Стилі для футера контенту */
+.footer-content {
+    display: flex; /* Використовуємо флексбокс для горизонтального вирівнювання */
+    justify-content: space-around; /* Розташування секцій */
+    flex-wrap: wrap; /* Дозволяємо переносити елементи на новий рядок */
+    margin-bottom: 20px; /* Відстань між контентом футера і текстом з правами */
+}
+
+/* Заголовки */
+.footer-content h3 {
+    margin-bottom: 15px; /* Відстань між заголовком і вмістом */
+    font-size: 18px; /* Розмір шрифту заголовка */
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Відстань між буквами */
+    color: #e67e22; /* Помаранчевий колір для заголовків */
+}
+
+/* Лінки */
+.social-links a,
+.policies a {
+    color: #2980b9; /* Блакитний колір для лінків */
+    text-decoration: none; /* Без підкреслення */
+    display: block; /* Відображення у вигляді блоку */
+    margin: 5px 0; /* Відстань між лінками */
+    transition: color 0.3s; /* Анімація кольору */
+}
+
+.social-links a:hover,
+.policies a:hover {
+    color: #3498db; /* Зміна кольору при наведенні */
+}
+
+/* Контактна інформація */
+.contact-info p {
+    margin: 5px 0; /* Відстань між параграфами */
+    font-weight: 300; /* Легкий шрифт для тексту */
+}
+
+/* Форма підписки */
+.newsletter {
+    display: grid; /* Використовуємо флексбокс для вирівнювання елементів */
+    justify-content: center; /* Центрування вмісту */
+    align-items: center; /* Вертикальне вирівнювання */
+    margin-top: 10px; /* Відстань перед формою */
+}
+
+.newsletter input[type="email"] {
+    padding: 5px; /* Внутрішні відступи для поля вводу */
+    margin-right: 5px; /* Відстань між полем і кнопкою */
+    border: 1px solid #ddd; /* Легке обрамлення */
+    border-radius: 5px; /* Кути для округлення */
+    font-size: 12px; /* Розмір шрифту */
+    width: 250px; /* Фіксована ширина для поля вводу */
+
+   
+  
+}
+
+/* Стиль кнопки */
+.newsletter button {
+    padding: 5px 10px; /* Внутрішні відступи для кнопки */
+    background-color: #e67e22; /* Помаранчевий фон кнопки */
+    color: white; /* Колір тексту */
+    border: none; /* Без обрамлення */
+    border-radius: 5px; /* Кути для округлення */
+    cursor: pointer; /* Курсор при наведенні */
+    transition: background-color 0.3s; /* Анімація при наведенні */
+    
+
+   
+       
+}
+
+.newsletter button:hover {
+    background-color: #d35400; /* Зміна кольору кнопки при наведенні */
+}
+/* Права */
+footer p {
+    margin-top: 20px; /* Відстань перед правами */
+    font-size: 14px; /* Розмір шрифту */
+    opacity: 0.8; /* Легке затемнення тексту */
+    text-align: center; /* Центрування тексту про права */
+   
+}

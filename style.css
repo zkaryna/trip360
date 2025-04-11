@@ -99,7 +99,7 @@ nav ul li a:hover {
 /* Hero секція */
 .hero {
     position: relative;
-    background-image: url('images/2.jpg');
+    background-image: url('2.jpg');
     background-size: cover;
     background-position: center;
     height: 600px;
@@ -339,7 +339,7 @@ nav ul li a:hover {
 }
 
 .card-1 {
-    background-image: url('./images/норвегія.jpg');
+    background-image: url('.норвегія.jpg');
     background-size: cover;
    
 }
@@ -367,19 +367,19 @@ transform: scale(1.1); /* Трохи збільшуємо */
 
 .card-2 {
     
-    background-image: url('images/португалія.jpg');
+    background-image: url('португалія.jpg');
     background-size: cover;
 }
 .card-3 {
-    background-image: url('images/японія.jpg');
+    background-image: url('японія.jpg');
     background-size: cover;
 }
 .card-4 {
-    background-image: url('images/китай.jpg');
+    background-image: url('китай.jpg');
     background-size: cover;
 }
 .card-5 {
-    background-image: url('images/кенія.jpg');
+    background-image: url('кенія.jpg');
     background-size: cover;
 }
 

@@ -458,19 +458,32 @@ footer p {
     font-size: 14px;
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 15px;
+}
 
-  header nav ul.menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+header nav ul.menu {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+}
 
-  header nav ul.menu li {
-    margin: 10px 0;
-  }
+header nav ul.menu li {
+  margin: 8px 0;
+  width: 100%;
+}
+
+header nav ul.menu li a {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+}
+
 
   .footer-content {
     flex-direction: column;
@@ -488,6 +501,39 @@ footer p {
 
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    font-size: 14px;
+  }
+
+  .send-btn,
+  .modal-close {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .gallery-grid img {
+    height: 160px;
+  }
+
+  .day-block {
+    padding: 15px;
+  }
+
+  .tour-section {
+    padding: 20px 10px;
   }
 }
 

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Норвегія: Фйорди, що торкаються серця</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    header {
+        position: relative;
+        z-index: 1000;
+      }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+
+    h2, h3 {
+      font-weight: 700;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 160px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .hero .book-btn {
+      background-color: #1abc9c;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero .book-btn:hover {
+      background-color: #16a085;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+    }
+    .modal-content textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        resize: vertical;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+        min-height: 100px;
+      }
+      
+      .modal-content textarea:focus {
+        border-color: #1abc9c;
+        outline: none;
+      }
+      
+
+    .modal-content input, .modal-content select, .modal-content button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .send-btn {
+        background-color: #27ae60;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .send-btn:hover {
+        background-color: #219150;
+      }
+      
+    .modal-close {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .contact-info {
+      background: #ecf0f1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+    }
+
+    .tour-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .day-block {
+        background: #ffffff;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+  
+      .day-block h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #2980b9;
+      }
+  
+      .day-block p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .slider img {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .slider img.active {
+      display: block;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .slider-btn.prev {
+      left: 10px;
+    }
+
+    .slider-btn.next {
+      right: 10px;
+    }
+    .tour-map {
+        margin-top: 60px;
+        text-align: center;
+      }
+  
+      .tour-map iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        border-radius: 12px;
+      }
+  
+      .tour-includes {
+        background-color: #fff3e0;
+        padding: 30px;
+        border-radius: 16px;
+        margin-top: 40px;
+        border: 3px solid #ff9800;
+        animation: fadeIn 1.2s ease-in-out;
+        box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
+      }
+  
+      .tour-includes h3 {
+        margin-bottom: 20px;
+      }
+  
+      .tour-includes h3:first-of-type {
+        font-size: 32px;
+        color: #e67e22;
+        text-align: center;
+      }
+  
+      .tour-includes h3:nth-of-type(2) {
+        color: #27ae60;
+      }
+  
+      .tour-includes h3:last-of-type {
+        color: #e74c3c;
+      }
+  
+      .tour-includes ul {
+        list-style: none;
+        padding-left: 0;
+      }
+  
+      .tour-includes li.included::before {
+        content: '✓';
+        color: #2ecc71;
+        margin-right: 10px;
+      }
+  
+      .tour-includes li.excluded::before {
+        content: '✗';
+        color: #e74c3c;
+        margin-right: 10px;
+      }
+  
+      .tour-dates {
+        margin-top: 60px;
+        text-align: center;
+      }
+  
+  
+      .book-btn {
+        display: inline-block;
+        background-color: #1abc9c;
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+  
+      .book-btn:hover {
+        background-color: #16a085;
+      }
+  
+      .past-gallery {
+        margin-top: 60px;
+        padding: 20px;
+      }
+  
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+  
+      .gallery-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s;
+      }
+  
+      .gallery-grid img:hover {
+        transform: scale(1.03);
+      }
+  
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #2c3e50;
+      color: #ecf0f1;
+      margin-top: 60px;
+    }
+
+
+/* Стилі для футера */
+
+
+footer {
+    background-color: #f8f9fa; /* Світлий фон, що нагадує пісок */
+    color: #333; /* Темний текст для кращої читабельності */
+    padding: 40px 20px; /* Внутрішні відступи */
+    text-align: center; /* Центрування тексту */
+}
+
+/* Стилі для футера контенту */
+.footer-content {
+    display: flex; /* Використовуємо флексбокс для горизонтального вирівнювання */
+    justify-content: space-around; /* Розташування секцій */
+    flex-wrap: wrap; /* Дозволяємо переносити елементи на новий рядок */
+    margin-bottom: 20px; /* Відстань між контентом футера і текстом з правами */
+}
+
+/* Заголовки */
+.footer-content h3 {
+    margin-bottom: 15px; /* Відстань між заголовком і вмістом */
+    font-size: 18px; /* Розмір шрифту заголовка */
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Відстань між буквами */
+    color: #e67e22; /* Помаранчевий колір для заголовків */
+}
+
+/* Лінки */
+.social-links a,
+.policies a {
+    color: #2980b9; /* Блакитний колір для лінків */
+    text-decoration: none; /* Без підкреслення */
+    display: block; /* Відображення у вигляді блоку */
+    margin: 5px 0; /* Відстань між лінками */
+    transition: color 0.3s; /* Анімація кольору */
+}
+
+.social-links a:hover,
+.policies a:hover {
+    color: #3498db; /* Зміна кольору при наведенні */
+}
+
+/* Контактна інформація */
+.contact-info p {
+    margin: 5px 0; /* Відстань між параграфами */
+    font-weight: 300; /* Легкий шрифт для тексту */
+}
+
+/* Форма підписки */
+.newsletter {
+    display: grid; /* Використовуємо флексбокс для вирівнювання елементів */
+    justify-content: center; /* Центрування вмісту */
+    align-items: center; /* Вертикальне вирівнювання */
+    margin-top: 10px; /* Відстань перед формою */
+}
+
+.newsletter input[type="email"] {
+    padding: 5px; /* Внутрішні відступи для поля вводу */
+    margin-right: 5px; /* Відстань між полем і кнопкою */
+    border: 1px solid #fcf9f9; /* Легке обрамлення */
+    border-radius: 5px; /* Кути для округлення */
+    font-size: 12px; /* Розмір шрифту */
+    width: 250px; /* Фіксована ширина для поля вводу */
+
+   
+  
+}
+
+/* Стиль кнопки */
+.newsletter button {
+    padding: 5px 10px; /* Внутрішні відступи для кнопки */
+    background-color: #e67e22; /* Помаранчевий фон кнопки */
+    color: white; /* Колір тексту */
+    border: none; /* Без обрамлення */
+    border-radius: 5px; /* Кути для округлення */
+    cursor: pointer; /* Курсор при наведенні */
+    transition: background-color 0.3s; /* Анімація при наведенні */
+    
+}
+
+.newsletter button:hover {
+    background-color: #d35400; /* Зміна кольору кнопки при наведенні */
+
+}
+footer p {
+    margin-top: 20px; /* Відстань перед правами */
+    font-size: 14px; /* Розмір шрифту */
+    opacity: 0.8; /* Легке затемнення тексту */
+    text-align: center; /* Центрування тексту про права */
+   
+}
+
+
+    @media (max-width: 768px) {
+        .tour-section {
+          padding: 40px 15px;
+        }
+      }
+  
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+  </style>
+</head>
+
+
+<body>
+    <header style="background-color: #FFFFFF; padding: 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Open Sans', sans-serif;">
+        <div class="logo" style="font-size: 28px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+          TripWise360
+        </div>
+        <nav>
+          <ul class="menu" style="list-style-type: none; margin: 0; padding: 15px; display: flex; justify-content: center;">
+            <li style="margin: 0 15px; position: relative;">
+              <a href="index.html" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Головна</a>
+            </li>
+            <li class="dropdown" style="margin: 0 15px; position: relative;">
+              <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Напрямки</a>
+              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 1000;">
+                <li><a href="europe.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Європа</a></li>
+                <li><a href="asia.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Азія</a></li>
+                <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Америка</a></li>
+                <li><a href="africa.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Африка</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" style="margin: 0 15px; position: relative;">
+              <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Актуальні тури</a>
+              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+                <li><a href="norway.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Норвегія</a></li>
+                <li><a href="tenerife.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Тенеріфе</a></li>
+                <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Мадейра</a></li>
+                <li><a href="africa.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Італія</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" style="margin: 0 15px; position: relative;">
+              <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Поради</a>
+              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+                <li><a href="packing.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Як пакувати валізу</a></li>
+                <li><a href="budget.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Бюджетні подорожі</a></li>
+                <li><a href="safety.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Безпека в подорожах</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" style="margin: 0 15px; position: relative;">
+              <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Блог</a>
+              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+                <li><a href="travel-tips.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Поради для мандрівників</a></li>
+                <li><a href="destination-reviews.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Огляди напрямків</a></li>
+                <li><a href="travel-stories.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Історії з подорожей</a></li>
+              </ul>
+            </li>
+            <li style="margin: 0 15px; position: relative;">
+              <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Контакти</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      
+      <!-- Додаємо трохи JS для розкриття меню -->
+      <script>
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          dropdown.addEventListener('mouseenter', () => {
+            const menu = dropdown.querySelector('.dropdown-menu');
+            menu.style.display = 'block';
+            menu.style.opacity = '1';
+            menu.style.visibility = 'visible';
+          });
+          dropdown.addEventListener('mouseleave', () => {
+            const menu = dropdown.querySelector('.dropdown-menu');
+            menu.style.display = 'none';
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+          });
+        });
+      </script>
+      
+  <div class="hero">
+    <h1>Норвегія: Фйорди, що торкаються серця</h1>
+    <p>Поринь у світ дикої природи, фйордів та скандинавських чудес</p>
+    <button class="book-btn" onclick="openModal()">Забронювати тур</button>
+  </div>
+
+  <section class="tour-section" id="tour-days">
+
+    
+    <!-- Програмні блоки турів будуть вставлені скриптом -->
+  </section>
+  <div id="tour-days"></div>
+
+  <<div class="tour-map">
+    <h3>🗺️ Маршрут на карті</h3>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1zboNCrZ_Ljz2Gi2O4YZJoj2ZT8YxZKg&ehbc=2E312F"></iframe>
+  </div>
+
+  <div class="tour-includes">
+    <h3>💰 Вартість подорожі: 500Є</h3>
+    <ul>
+      <h3>У ВАРТІСТЬ ВКЛЮЧЕНО:</h3>
+      <li class="included">Проживання у традиційних норвезьких хатинках (4 ночі)</li>
+      <li class="included">Авто, паркування та платні дороги</li>
+      <li class="included">Круїз по фьорду</li>
+      <li class="included">Похід на Язик Троля</li>
+      <li class="included">Організація маршруту</li>
+      <li class="included">Допомога з авіаквитками (за потреби)</li>
+      <h3>У ВАРТІСТЬ НЕ ВКЛЮЧЕНО:</h3>
+      <li class="excluded">Авіаквитки</li>
+      <li class="excluded">Харчування (можливість приготування)</li>
+      <li class="excluded">Додаткові активності (сауна, каяки)</li>
+      <li class="excluded">Страхування</li>
+      <li class="excluded">Особисті витрати</li>
+    </ul>
+  </div>
+
+  <div class="tour-dates">
+    <h3>📅 Дати туру</h3>
+    <p>28 червня – 1 липня</p>
+    <p>16 липня – 20 липня</p>
+    <a href="#book" class="book-btn">Забронювати тур</a>
+  </div>
+
+  <div class="past-gallery">
+    <h3 style="text-align: center; font-size: 28px; color: #34495e;">📸 Спогади з минулих турів</h3>
+    <div class="gallery-grid">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Hardangerfjord.jpg" alt="Тур1" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Trolltunga_Norway.jpg" alt="Тур2" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/V%C3%B8ringsfossen_in_2015.jpg" alt="Тур3" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/N%C3%A6r%C3%B8yfjord_Norway.jpg" alt="Тур4" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Vigeland_Park_Oslo.jpg" alt="Тур5" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Laerdal_Norway.jpg" alt="Тур6" />
+    </div>
+  </div>
+  
+
+  <footer>
+    <div class="footer-content">
+        <div class="social-links">
+            <h3>Соціальні мережі</h3>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
+
+        <div class="contact-info">
+            <h3>Контактна інформація</h3>
+            <p>Email: info@tripwise360.com</p>
+            <p>Телефон: +123 456 789</p>
+            <form class="newsletter">
+                <label for="email">Підписка на новини:</label>
+                <input type="email" id="email" placeholder="Ваш email" required>
+                <button type="submit">Підписатися</button>
+            </form>
+        </div>
+
+        <div class="policies">
+            <h3>Інформація</h3>
+            <a href="#">Політика конфіденційності</a>
+            <a href="#">Умови використання</a>
+        </div>
+    </div>
+    <p>© 2025 TripWise. Створено з ❤️ для мандрівників</p>
+  </footer>
+
+  <!-- Модальне вікно -->
+
+  <div class="modal" id="booking-modal">
+    <div class="modal-content">
+      <h3>Забронювати тур</h3>
+      <form action="https://formsubmit.co/karenbrown2336@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="date" required>
+          <option value="">Оберіть дату</option>
+          <option value="28-06">28 червня – 1 липня</option>
+          <option value="16-07">16 липня – 20 липня</option>
+        </select>
+        <textarea name="message" placeholder="Коментар або питання..."></textarea>
+  
+        <!-- Службові опції -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+  
+        <button type="submit" class="send-btn">Надіслати</button>
+      </form>
+      <button class="modal-close" onclick="closeModal()">Закрити</button>
+    </div>
+  </div>
+  
+  
+
+  <script>
+    const daysData = [
+      {
+        title: ' День 1: Приліт в Осло',
+        text: 'Зустрічаємось в столиці Норвегії — Осло.Завітаємо до Опери — вражаючої будівлі на воді, де можна прогулятись по даху з краєвидом на фьорд. Далі — Національна галерея Мунка, де зберігається легендарний «Крик» та інші твори норвезького експресіонізму. Завершимо день у парку Віґеланда — найбільшій скульптурній композиції під відкритим небом, де понад 200 фігур розповідають історію людського життя.',
+        images: [
+          'https://hopon.no/wp-content/uploads/2024/02/hop-on-hop-off-sightseeing-tour-bus-oslo-attractions-opera-house.webp',
+          'https://wapniakiwdrodze.pl/wp-content/uploads/2014/02/DSC_0726.JPG',
+           'https://reisekick.no/wp-content/uploads/2023/04/Oslo-slottet-karl-johan.jpeg'
+        ]
+      },
+      {
+        title: '🏔️ День 2: Осло — Лердал',
+        text: '  Вирушаємо вглиб Норвегії!Перша зупинка — біля озера <b>Krøderen</b> — гарне місце з краєвидом на воду й гори.Далі прямуємо через гірський регіон <b>Hemsedal</b>. Тут зупинимось біля водоспаду Rjukandefossen — подвійний водоспад із підвісним мостом, чудове місце для короткої прогулянки та фотографій.Після цього їдемо до Borgund Stave Church — унікальної дерев’яної церкви XII століття, однієї з найкраще збережених у Норвегії. Атмосфера середньовіччя та нордичної містики гарантована.Увечері прибуваємо до Lærdal — затишного містечка біля фьорду. Заселяємось у традиційні хатинки, вечеряємо та гуляємо містом.', 
+        images: [
+          'https://images.citybreak.com/image.aspx?ImageId=7471372&fitaspect=1&height=600',
+          'https://lokalhistoriewiki.no/thumb.php?f=Hemsedal_1999.JPG&width=1200',
+          'https://upload.wikimedia.org/wikipedia/commons/0/0f/Laerdal_Norway.jpg',
+          'https://media-cdn.tripadvisor.com/media/photo-s/0c/de/b8/4d/photo2jpg.jpg'
+        ]
+      },
+      {
+        title: '🌄 День 3: Стегастейн — Флом — Gudvangen',
+        text: 'День починається з зупинки на оглядовому майданчику Стегастейн — скляна платформа високо над Согнефьордом, звідки відкривається вражаюча панорама. Далі похід до водоспаду Brekkefossen. Стежка не надто складна, а з вершини відкривається чудовий краєвид на долину та фьорд. Потім на нас чекає круїз по Неройфйорду — одному з найвужчих і найгарніших фьордів Норвегії, що входить до спадщини ЮНЕСКО. Після круїзу заїжджаємо у Гудванген — невелике село з реконструйованим вікінгським центром. Можна зайти у тематичне кафе, пройтись поміж сувенірних лавок і просто відпочити біля річки серед гір. Завершення дня — у затишній атмосфері фьордової Норвегії.',
+        images: [
+          'https://www.norwayexcursions.com/wp-content/uploads/2023/12/header-flam-stegastein-viewpoint-and-naeroy-valley.jpg',
+          'https://www.whereintheworldistosh.com/wp-content/uploads/2016/09/IMG_5484.jpg',
+          'https://www.routesnorth.com/wp-content/uploads/2024/02/flam-church.jpeg',
+          'https://upload.wikimedia.org/wikipedia/commons/0/07/Nærøyfjorden_frå_Gudvangen.jpg',
+          'https://www.visitbergen.com/dmsimgs/VIKING-VILLAGE-GUDVANGEN-NJARARHEIM-SVERREHJORNEVIK-SUMMER-1209-11175689-_Foto_Sverre_Hj_rnevik_904514468.JPG'
+        ]
+      },
+      {
+        title: '🏞️ День 4: Voss — водоспади — Одда',
+        text: 'Після сніданку вирушаємо в дорогу з кількома зупинками. Перша — Voss, невелике містечко серед гір, де можна випити кави й розім’ятись. Далі на нас чекає водоспад Vørringfossen — один із найвищих у країні, з оглядовим майданчиком та містком через ущелину. Потім ми відвідаємо ще три вражаючі водоспади: Latefossen — подвійний водоспад, що ефектно перетинає дорогу; Vidfossen, що спадає стрімко по скелях; і Espelandsfossen — менш відомий, але неймовірно мальовничий. Увечері приїжджаємо в Одду, де заселяємось у готель і відпочиваємо',
+        images: [
+          'https://img.tourister.ru/files/2/5/0/1/8/7/7/6/original.jpg',
+          'https://t4.ftcdn.net/jpg/00/91/76/31/360_F_91763186_Kx3m7C7o5U25vWaW7sfSkcsMsjmi5IWF.jpg',
+          'https://live.staticflickr.com/5807/30884737655_59c448e9e9_b.jpg'
+        ]
+      },
+      {
+        title: '🧗‍♀️ День 5: Язик Троля',
+        text: 'Цей день — для тих, хто любить активний відпочинок і хоче відчути справжню силу норвезької природи. Нас чекає легендарний маршрут до Язика Троля (Trolltunga) — вражаючої скелі, що нависає над бірюзовим озером Ringedalsvatnet.Похід займає близько 10–12 годин (в обидва боки), тож варто бути готовими до серйозного фізичного навантаження.Для тих, хто не готовий пройти весь маршрут, є можливість залишитись поблизу або піднятись до кількох панорамних точок, щоб теж насолодитися краєвидами.А для сміливців, які дійдуть до кінця — вражаюча панорама, фото на краю світу і відчуття перемоги, які залишаться в памʼяті назавжди.Увечері — заслужений відпочинок, смачна вечеря та розповіді про пройдений шлях..',
+        images: [
+          'https://images.unsplash.com/photo-1504519560822-bed2d817f87f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJvbGx0dW5nYXxlbnwwfHwwfHx8MA%3D%3D',
+          'https://images.squarespace-cdn.com/content/v1/58c7ebde37c581e1410e266c/1527686531155-28DM0YILUJ390U7G3Y6S/tanya-tulupenko-133152-unsplash.jpg',
+          'https://www.datocms-assets.com/55942/1635176763-fjelltur-til-luftige-trolltunga.jpg?q=70&auto=format&w=1280&fit=crop&crop=faces,focalpoint&iptc=allow&h=960',
+          'https://www.stormberg.com/globalassets/inspirasjon/norgesferie/destinasjoner/ringedalsvatnet.jpeg?ref=BB5837F5AA&w=1280&scale=both'
+        ]
+      },
+      {
+        title: '🚗 День 6: Назад до Осло',
+        text: 'Повертаємось до столиці через Hardangerfjord, де розквітають сади і річки падають водоспадами. Зупинимось на фруктовій фермі для дегустації місцевого сидру, джемів та смаколиків. Вечірнє прибуття в Осло.',
+        images: [
+          'https://www.visitbergen.com/imageresizer/?image=%2Fdmsimgs%2FFjord_Norge_Robin_Strand_ny_1473714184.jpg&action=ProductListMain',
+          'https://media.newmindmedia.com/TellUs/image/?file=_VB06714_-_1240x711_1545588266.jpg',
+          'https://www.visitbergen.com/imageresizer/?image=%2Fdmsimgs%2FHardangerfjorden_2032924062.jpg&action=ProductDetailExtraLargeNew'
+        ]
+      }
+    ];
+
+    const tourDays = document.getElementById('tour-days');
+
+    daysData.forEach(day => {
+      const block = document.createElement('div');
+      block.className = 'day-block';
+      block.innerHTML = `
+        <h3>${day.title}</h3>
+        <p>${day.text}</p>
+        <div class="slider">
+          ${day.images.map((src, idx) => `<img src="${src}" class="${idx === 0 ? 'active' : ''}" alt="Фото дня">`).join('')}
+          ${day.images.length > 1 ? `
+            <button class="slider-btn prev">❮</button>
+            <button class="slider-btn next">❯</button>
+          ` : ''}
+        </div>
+      `;
+      tourDays.appendChild(block);
+    });
+
+    document.querySelectorAll('.slider').forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      if (images.length < 2) return;
+      let index = 0;
+      const showImage = i => {
+        images.forEach((img, idx) => img.classList.toggle('active', idx === i));
+      };
+      slider.querySelector('.next').addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        showImage(index);
+      });
+      slider.querySelector('.prev').addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+      });
+      showImage(index);
+    });
+
+    function openModal() {
+      document.getElementById('booking-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('booking-modal').style.display = 'none';
+    }
+
+ 
+        function openModal() {
+          document.getElementById('booking-modal').style.display = 'flex';
+        }
+      
+        function closeModal() {
+          document.getElementById('booking-modal').style.display = 'none';
+        }
+      
+        // Додати до ВСІХ кнопок класу .book-btn відкриття модального
+        document.querySelectorAll('.book-btn').forEach(btn => {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault(); // запобігає переходу, якщо кнопка — <a>
+            openModal();
+          });
+        });
+     
+      
+  </script>
+</body>
+</html>

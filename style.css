@@ -601,3 +601,97 @@ footer p {
     text-align: center; /* Центрування тексту про права */
    
 }
+
+
+
+@media (max-width: 768px) {
+  /* Головна навігація */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Hero секція */
+  .hero {
+    height: 400px;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+    width: 100%;
+  }
+
+  .hero .button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  /* Блок "Про мене" */
+  .aboutme {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+  }
+
+  .caption {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .other-photos, .other-photos2 {
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .other-photo {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+  }
+
+  /* Слайдер */
+  .card {
+    flex: 0 0 240px;
+    height: 320px;
+    font-size: 16px;
+  }
+
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .newsletter button {
+    width: 100%;
+  }
+}
+
+
+

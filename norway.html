@@ -413,10 +413,10 @@ footer p {
 
    @media (max-width: 768px) {
   /* Приховати header */
-  header {
+  /* header {
     display: none;
   }
-
+ */
   /* Основний контент */
   .tour-section {
     padding: 30px 15px;
@@ -555,6 +555,45 @@ html {
   }
 }
 
+<!--/* Додай цей блок у кінець CSS */-->
+.mobile-menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul.menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  nav ul.menu.show {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+
+
 
   </style>
 </head>
@@ -565,6 +604,8 @@ html {
         <div class="logo" style="font-size: 28px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
           TripWise360
         </div>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">☰</button>
+
         <nav>
       
           <ul class="menu" style="list-style-type: none; margin: 0; padding: 15px; display: flex; justify-content: center;">
@@ -629,6 +670,16 @@ html {
           });
         });
       </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.querySelector('nav ul.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+});
+</script>
       
   <div class="hero">
     <h1>Норвегія: Фіорди, що торкаються серця</h1>

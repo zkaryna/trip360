@@ -692,7 +692,20 @@ html {
     background-color: #f5f5f5;
   }
 }
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 
+  .dropdown-menu {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+}
 
   </style>
 </head>
@@ -714,7 +727,7 @@ html {
             </li>
             <li class="dropdown" style="margin: 0 15px; position: relative;">
               <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Напрямки</a>
-              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; z-index: 1000;">
+              <ul class="dropdown-menu" >
                 <li><a href="europe.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Європа</a></li>
                 <li><a href="asia.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Азія</a></li>
                 <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Америка</a></li>
@@ -723,7 +736,7 @@ html {
             </li>
             <li class="dropdown" style="margin: 0 15px; position: relative;">
               <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Актуальні тури</a>
-              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+              <ul class="dropdown-menu" >
                 <li><a href="norway.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Норвегія</a></li>
                 <li><a href="tenerife.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Тенеріфе</a></li>
                 <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Мадейра</a></li>
@@ -732,7 +745,7 @@ html {
             </li>
             <li class="dropdown" style="margin: 0 15px; position: relative;">
               <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Поради</a>
-              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+              <ul class="dropdown-menu">
                 <li><a href="packing.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Як пакувати валізу</a></li>
                 <li><a href="budget.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Бюджетні подорожі</a></li>
                 <li><a href="safety.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Безпека в подорожах</a></li>
@@ -740,7 +753,7 @@ html {
             </li>
             <li class="dropdown" style="margin: 0 15px; position: relative;">
               <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Блог</a>
-              <ul class="dropdown-menu" style="display: none; position: absolute; top: 30px; left: 0; background: white; list-style: none; padding: 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+              <ul class="dropdown-menu" >
                 <li><a href="travel-tips.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Поради для мандрівників</a></li>
                 <li><a href="destination-reviews.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Огляди напрямків</a></li>
                 <li><a href="travel-stories.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Історії з подорожей</a></li>

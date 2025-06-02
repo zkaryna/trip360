@@ -615,6 +615,14 @@ html {
       z-index: 999;
     }
 
+      .dropdown-menu {
+    position: static !important;
+    display: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none;
+    padding-left: 20px;
+  }
   </style>
 </head>
 
@@ -950,6 +958,24 @@ function toggleMenu() {
 
       
   </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const submenu = this.nextElementSibling;
+        if (submenu && submenu.classList.contains('dropdown-menu')) {
+          const isVisible = submenu.style.display === 'block';
+          document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
+          submenu.style.display = isVisible ? 'none' : 'block';
+        }
+      });
+    });
+  }
+});
+</script>
+
    
  
 

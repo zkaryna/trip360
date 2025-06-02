@@ -693,6 +693,28 @@ html {
   }
 }
 
+/* Підсвічування для пунктів меню при наведенні (тільки для десктопу) */
+@media (min-width: 769px) {
+  nav ul.menu li a {
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  nav ul.menu li:hover > a {
+    background-color: #f0f0f0;
+    color: #1abc9c;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: #1abc9c;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+
 
   </style>
 </head>

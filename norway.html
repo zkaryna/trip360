@@ -1048,7 +1048,16 @@ document.addEventListener('DOMContentLoaded', function () {
    
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // Мобільна логіка (до 768px)
+  const menuButton = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('header nav');
+
+  if (menuButton && navMenu) {
+    menuButton.addEventListener('click', function () {
+      navMenu.classList.toggle('show');
+    });
+  }
+
+  // Мобільна поведінка для підменю
   if (window.innerWidth <= 768) {
     document.querySelectorAll('.dropdown > a').forEach(link => {
       link.addEventListener('click', function (e) {
@@ -1063,16 +1072,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Перемкнути активне меню
-        if (submenu.style.display === 'block') {
-          submenu.style.display = 'none';
-        } else {
-          submenu.style.display = 'block';
-        }
+        submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
       });
     });
   }
 });
 </script>
+
 
 
 

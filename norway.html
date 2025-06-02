@@ -787,23 +787,7 @@ html {
         </nav>
       </header>
       
-      <!-- Додаємо трохи JS для розкриття меню -->
-      <script>
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-          dropdown.addEventListener('mouseenter', () => {
-            const menu = dropdown.querySelector('.dropdown-menu');
-            menu.style.display = 'block';
-            menu.style.opacity = '1';
-            menu.style.visibility = 'visible';
-          });
-          dropdown.addEventListener('mouseleave', () => {
-            const menu = dropdown.querySelector('.dropdown-menu');
-            menu.style.display = 'none';
-            menu.style.opacity = '0';
-            menu.style.visibility = 'hidden';
-          });
-        });
-      </script>
+     
   <script>
 document.addEventListener('DOMContentLoaded', function () {
   const toggle = document.getElementById('mobile-menu-toggle');

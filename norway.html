@@ -9,18 +9,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
+   
+
     header {
-        position: relative;
-        z-index: 1000;
-      }
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
     body {
+      padding-top: 80px;
       font-family: 'Open Sans', sans-serif;
       background-color: #fafafa;
       margin: 0;
-      padding: 0;
       color: #2c3e50;
     }
-
+    
     h2, h3 {
       font-weight: 700;
     }
@@ -58,7 +65,10 @@
     .hero .book-btn:hover {
       background-color: #16a085;
     }
-
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
     .modal {
       display: none;
       position: fixed;
@@ -711,8 +721,92 @@ html {
     display: flex;
   }
 }
+/* Вартість подорожі */
+.tour-includes.compact {
+  background: #e8f5e9;
+  border: 2px solid #27ae60;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+  font-size: 16px;
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+}
 
+.includes-wrapper {
+  max-width: 100%;
+  width: 100%;
+}
 
+.tour-includes.compact h3 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.tour-includes.compact h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.includes-columns {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.includes-columns > div {
+  flex: 1;
+}
+
+.tour-includes.compact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tour-includes.compact li {
+  padding: 6px 0;
+  line-height: 1.6;
+}
+
+.tour-includes.compact .included::before {
+  content: '\2713';
+  color: #27ae60;
+  margin-right: 8px;
+}
+
+.tour-includes.compact .excluded::before {
+  content: '\2717';
+  color: #e74c3c;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .includes-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tour-includes.compact {
+    padding: 20px 16px;
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  .tour-includes.compact h3 {
+    font-size: 22px;
+  }
+
+  .tour-includes.compact h4 {
+    font-size: 18px;
+  }
+}
   </style>
 </head>
 
@@ -802,26 +896,36 @@ document.addEventListener('DOMContentLoaded', function () {
     <h3>🗺️ Маршрут на карті</h3>
     <iframe src="https://www.google.com/maps/d/embed?mid=1zboNCrZ_Ljz2Gi2O4YZJoj2ZT8YxZKg&ehbc=2E312F"></iframe>
   </div> -->
-
-  <div class="tour-includes">
-    <h3>💰 Вартість подорожі: 500Є </h3>
-    <ul>
-      <h3>У ВАРТІСТЬ ВКЛЮЧЕНО:</h3>
-      <li class="included">Проживання у традиційних норвезьких хатинках (4 ночі)</li>
-      <li class="included">Авто, паркування та платні дороги</li>
-      <li class="included">Круїз по Неройфіорду (Nærøyfjorden)(обʼєкт спадщини ЮНЕСКО)</li>
-      <li class="included">Водоспад Vøringsfossen</li>
-      <li class="included">Похід на Язик Троля</li>
-      <li class="included">Організація маршруту</li>
-      <li class="included">Допомога з авіаквитками (за потреби)</li>
-      <h3>У ВАРТІСТЬ НЕ ВКЛЮЧЕНО:</h3>
-      <li class="excluded">Авіаквитки до/з Осло</li>
-      <li class="excluded">Харчування (можливість приготування)</li>
-      <li class="excluded">Додаткові активності (сауна, каяки)</li>
-      <li class="excluded">Страхування (300-500грн)</li>
-      <li class="excluded">Особисті витрати</li>
-    </ul>
+  <!-- 🔄 Вартість подорожі-->
+<div class="tour-includes compact">
+  <div class="includes-wrapper">
+    <h3>💰 Вартість подорожі: 500€</h3>
+    <div class="includes-columns">
+      <div>
+        <h4>У вартості:</h4>
+        <ul>
+          <li class="included">Проживання у хатинках (4 ночі)</li>
+          <li class="included">Автомобіль, паркування, дороги</li>
+          <li class="included">Круїз по Неройфіорду (ЮНЕСКО)</li>
+          <li class="included">Водоспад Vøringsfossen</li>
+          <li class="included">Похід на Язик Троля</li>
+          <li class="included">Організація маршруту</li>
+          <li class="included">Допомога з авіаквитками</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Не включено:</h4>
+        <ul>
+          <li class="excluded">Авіаквитки до/з Осло</li>
+          <li class="excluded">Харчування</li>
+          <li class="excluded">Сауна, каяки тощо</li>
+          <li class="excluded">Страхування</li>
+          <li class="excluded">Особисті витрати</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</div>
 
   <div class="tour-dates">
     <h3>📅 Дати туру</h3>
@@ -1026,10 +1130,8 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         });
     
-function toggleMenu() {
-  const nav = document.querySelector('header nav');
-  nav.classList.toggle('show');
-}
+
+
 
       
   </script>

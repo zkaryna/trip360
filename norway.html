@@ -659,19 +659,49 @@ html {
   }
 }
     @media (min-width: 769px) {
-  header nav {
-    display: flex !important;
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: #f5f5f5;
   }
 }
-/* Основне — для десктопу */
-header nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.hamburger {
+  display: none;
 }
 
-/* Мобільне — ховає меню */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
   header nav {
     display: none;
     flex-direction: column;
@@ -687,9 +717,10 @@ header nav {
 </head>
 
 <body>
-  <button class="hamburger" onclick="toggleMenu()">
-  <i class="fas fa-bars"></i>
-</button>
+  <button class="hamburger">
+    <i class="fas fa-bars"></i>
+  </button>
+  
     <header style="background-color: #FFFFFF; padding: 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Open Sans', sans-serif;">
         <div class="logo" style="font-size: 28px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
           TripWise360
@@ -1002,132 +1033,48 @@ function toggleMenu() {
 
       
   </script>
+ 
+  
+     
   <script>
-document.addEventListener('DOMContentLoaded', function () {
-  if (window.innerWidth > 768) return; // Додано: працює лише для мобільних
-
-  document.querySelectorAll('.dropdown > a').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const submenu = this.nextElementSibling;
-      if (submenu && submenu.classList.contains('dropdown-menu')) {
-        const isVisible = submenu.style.display === 'block';
-        document.querySelectorAll('.dropdown-menu').forEach(menu => menu.style.display = 'none');
-        submenu.style.display = isVisible ? 'none' : 'block';
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuButton = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('header nav');
+    
+      // Клік по гамбургеру відкриває/закриває меню
+      if (menuButton && navMenu) {
+        menuButton.addEventListener('click', function () {
+          navMenu.classList.toggle('show');
+        });
+      }
+    
+      // Поведінка для мобільних пристроїв (<=768px)
+      if (window.innerWidth <= 768) {
+        document.querySelectorAll('.dropdown > a').forEach(link => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const submenu = this.nextElementSibling;
+    
+            if (!submenu || !submenu.classList.contains('dropdown-menu')) return;
+    
+            // Сховати всі інші меню
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              if (menu !== submenu) menu.style.display = 'none';
+            });
+    
+            // Показати / сховати обране меню
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+          });
+        });
       }
     });
-  });
-});
+    </script>
+    
+  
+ 
+  
 
-</script>
 
-   
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuButton = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('header nav');
-
-  if (menuButton && navMenu) {
-    menuButton.addEventListener('click', function () {
-      navMenu.classList.toggle('show');
-    });
-  }
-
-  // Мобільна поведінка для підменю
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.dropdown > a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-
-        if (!submenu) return;
-
-        // Сховати всі інші
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-          if (menu !== submenu) menu.style.display = 'none';
-        });
-
-        // Перемкнути активне меню
-        submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-      });
-    });
-  }
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuButton = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('header nav');
-
-  if (menuButton && navMenu) {
-    menuButton.addEventListener('click', function () {
-      navMenu.classList.toggle('show');
-    });
-  }
-
-  // Додаткове виправлення для мобільних пристроїв: кліки по пунктам меню
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.dropdown > a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-
-        if (!submenu || !submenu.classList.contains('dropdown-menu')) return;
-
-        // Сховати інші меню
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-          if (menu !== submenu) menu.style.display = 'none';
-        });
-
-        // Показати / сховати обране меню
-        submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
-      });
-    });
-  }
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const menuButton = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('header nav');
-
-  if (menuButton && navMenu) {
-    menuButton.addEventListener('click', function () {
-      navMenu.classList.toggle('show');
-    });
-  }
-
-  // Мобільна поведінка для підменю з автозакриттям
-  if (window.innerWidth <= 768) {
-    document.querySelectorAll('.dropdown > a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-
-        if (!submenu) return;
-
-        // Сховати всі інші
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-          if (menu !== submenu) {
-            menu.classList.remove('show');
-            clearTimeout(menu.timeoutId);
-          }
-        });
-
-        submenu.classList.add('show');
-
-        // Автоматичне закриття через 5 секунд без взаємодії
-        clearTimeout(submenu.timeoutId);
-        submenu.timeoutId = setTimeout(() => {
-          submenu.classList.remove('show');
-        }, 5000);
-      });
-    });
-  }
-});
-</script>
 
 
 </body>

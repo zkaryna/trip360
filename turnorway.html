@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тури Норвегією | TripWise360</title>
+  <link rel="stylesheet" href="stylenorway.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    body {
+      padding-top: 80px;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      color: #2c3e50;
+    }
+    
+    h2, h3 {
+      font-weight: 700;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 120px 20px 160px;
+      position: relative;
+    }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+.hero h1, .hero p, .hero .book-btn {
+  position: relative;
+  z-index: 1;
+}
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .hero .book-btn {
+      background-color: #1abc9c;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero .book-btn:hover {
+      background-color: #16a085;
+    }
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+.hero h1, .hero p, .hero .book-btn {
+  position: relative;
+  z-index: 1;
+}
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+    }
+    .modal-content textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        resize: vertical;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+        min-height: 100px;
+      }
+      
+      .modal-content textarea:focus {
+        border-color: #1abc9c;
+        outline: none;
+      }
+      
+
+    .modal-content input, .modal-content select, .modal-content button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .send-btn {
+        background-color: #27ae60;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .send-btn:hover {
+        background-color: #219150;
+      }
+      
+    .modal-close {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .contact-info {
+      background: #ecf0f1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      font-size: 18px;
+    }
+
+    .tour-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .day-block {
+        background: #ffffff;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      }
+  
+      .day-block h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #2980b9;
+      }
+  
+      .day-block p {
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .slider img {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .slider img.active {
+      display: block;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .slider-btn.prev {
+      left: 10px;
+    }
+
+    .slider-btn.next {
+      right: 10px;
+    }
+    .tour-map {
+        margin-top: 60px;
+        text-align: center;
+      }
+  
+      .tour-map iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        border-radius: 12px;
+      }
+  
+      .tour-includes {
+        background-color: #fff3e0;
+        padding: 30px;
+        border-radius: 16px;
+        margin-top: 40px;
+        border: 3px solid #ff9800;
+        animation: fadeIn 1.2s ease-in-out;
+        box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
+      }
+  
+      .tour-includes h3 {
+        margin-bottom: 20px;
+      }
+  
+      .tour-includes h3:first-of-type {
+        font-size: 32px;
+        color: #e67e22;
+        text-align: center;
+      }
+  
+      .tour-includes h3:nth-of-type(2) {
+        color: #27ae60;
+      }
+  
+      .tour-includes h3:last-of-type {
+        color: #e74c3c;
+      }
+  
+      .tour-includes ul {
+        list-style: none;
+        padding-left: 0;
+      }
+  
+      .tour-includes li.included::before {
+        content: '✓';
+        color: #2ecc71;
+        margin-right: 10px;
+      }
+  
+      .tour-includes li.excluded::before {
+        content: '✗';
+        color: #e74c3c;
+        margin-right: 10px;
+      }
+  
+      .tour-dates {
+        margin-top: 60px;
+        text-align: center;
+      }
+  
+  
+      .book-btn {
+        display: inline-block;
+        background-color: #1abc9c;
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+  
+      .book-btn:hover {
+        background-color: #16a085;
+      }
+  
+      .past-gallery {
+        margin-top: 60px;
+        padding: 20px;
+      }
+  
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+  
+      .gallery-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s;
+      }
+  
+      .gallery-grid img:hover {
+        transform: scale(1.03);
+      }
+  
+
+  
+
+
+/* Стилі для футера */
+
+
+footer {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  font-family: 'Open Sans', sans-serif;
+  color: #2c3e50;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-block {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-block h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #e67e22;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li a {
+  color: #2980b9;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.footer-links li a:hover {
+  color: #3498db;
+}
+
+.newsletter {
+  margin-top: 10px;
+}
+
+.newsletter input[type="email"] {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.newsletter button {
+  padding: 8px 16px;
+  background-color: #e67e22;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: #d35400;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+.footer-links li a i {
+  margin-right: 8px;
+  color: #e67e22;
+  transition: transform 0.3s;
+}
+
+.footer-links li a:hover i {
+  transform: scale(1.2);
+}
+
+
+/* Мобільна адаптація */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-block {
+    text-align: center;
+  }
+
+  .footer-links li a {
+    text-align: center;
+  }
+}
+
+   @media (max-width: 768px) {
+  /* Приховати header */
+  /* header {
+    display: none;
+  }
+ */
+  /* Основний контент */
+  .tour-section {
+    padding: 30px 15px;
+  }
+
+  /* Hero-блок */
+  .hero h1 {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  .book-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  /* Модальне вікно */
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .modal-content input,
+  .modal-content select,
+  .modal-content textarea {
+    font-size: 16px;
+  }
+
+  /* Дні туру */
+  .day-block {
+    padding: 20px;
+  }
+
+  .day-block h3 {
+    font-size: 20px;
+  }
+
+  .day-block p {
+    font-size: 16px;
+  }
+
+  .slider-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Галерея */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery-grid img {
+    height: auto;
+  }
+
+  /* Контактна інформація */
+  .contact-info h3 {
+    font-size: 20px;
+  }
+
+  .contact-info p {
+    font-size: 16px;
+  }
+
+  /* Футер */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-content h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .social-links a,
+  .policies a {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .newsletter input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .newsletter {
+    display: block;
+  }
+
+
+  footer p {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+/* Анімація */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+/*@media (max-width: 768px) {
+  header {
+    display: none !important;
+  }
+}
+*/
+<!--/* Додай цей блок у кінець CSS */-->
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #2c3e50;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1101;
+    cursor: pointer;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  header nav.show {
+    display: flex;
+  }
+
+  nav ul.menu {
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav ul.menu li {
+    border-bottom: 1px solid #eee;
+    text-align: left;
+  }
+
+  nav ul.menu li a {
+    display: block;
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+   
+.dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0;
+    display: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    width: max-content;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu a {
+    padding: 10px 15px;
+    display: block;
+    color: black;
+  }
+
+
+/* === МОБІЛЬНА ПОВЕДІНКА (по кліку) === */
+@media (max-width: 768px) {
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+
+ .dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+  }
+}
+    @media (min-width: 769px) {
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+  }
+
+  header nav.show {
+    display: flex;
+  }
+}
+/* Вартість подорожі */
+.tour-includes.compact {
+  background: #e8f5e9;
+  border: 2px solid #27ae60;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+  font-size: 16px;
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.includes-wrapper {
+  max-width: 100%;
+  width: 100%;
+}
+
+.tour-includes.compact h3 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.tour-includes.compact h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.includes-columns {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.includes-columns > div {
+  flex: 1;
+}
+
+.tour-includes.compact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tour-includes.compact li {
+  padding: 6px 0;
+  line-height: 1.6;
+}
+
+.tour-includes.compact .included::before {
+  content: '\2713';
+  color: #27ae60;
+  margin-right: 8px;
+}
+
+.tour-includes.compact .excluded::before {
+  content: '\2717';
+  color: #e74c3c;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .includes-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tour-includes.compact {
+    padding: 20px 16px;
+    margin: 30px auto;
+    width: 90%;
+  }
+
+  .tour-includes.compact h3 {
+    font-size: 22px;
+  }
+
+  .tour-includes.compact h4 {
+    font-size: 18px;
+}
+}
+@media (max-width: 768px) {
+  .newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .newsletter input[type="email"],
+  .newsletter button {
+    width: 250px;
+    max-width: 90%;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+}
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600172454520-08c1b9eeccbb') no-repeat center center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px auto;
+    }
+    .filters button {
+      padding: 10px 20px;
+      background-color: #eee;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filters button:hover {
+      background-color: #ddd;
+    }
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .tour-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      transition: 0.3s;
+    }
+    .tour-card:hover {
+      transform: translateY(-4px);
+    }
+    .tour-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .tour-card-content {
+      padding: 20px;
+    }
+    .tour-card h3 {
+      margin-top: 0;
+    }
+    .book-btn {
+      display: inline-block;
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .book-btn:hover {
+      background-color: #16a085;
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #e67e22;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header style="background-color: #FFFFFF; padding: 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Open Sans', sans-serif;">
+    <div class="logo" style="font-size: 28px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+      TripWise360
+    </div>
+
+    <nav>
+  
+      <ul class="menu" style="list-style-type: none; margin: 0; padding: 15px; display: flex; justify-content: center;">
+        <li style="margin: 0 15px; position: relative;">
+          <a href="index.html" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Головна</a>
+        </li>
+        <li class="dropdown" style="margin: 0 15px; position: relative;">
+          <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Напрямки</a>
+          <ul class="dropdown-menu" >
+            <li><a href="europe.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Європа</a></li>
+            <li><a href="asia.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Азія</a></li>
+            <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Америка</a></li>
+            <li><a href="africa.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Африка</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" style="margin: 0 15px; position: relative;">
+          <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Актуальні тури</a>
+          <ul class="dropdown-menu" >
+            <li><a href="norway.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Норвегія</a></li>
+            <li><a href="tenerife.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Тенеріфе</a></li>
+            <li><a href="america.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Мадейра</a></li>
+            <li><a href="africa.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Італія</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" style="margin: 0 15px; position: relative;">
+          <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Поради</a>
+          <ul class="dropdown-menu">
+            <li><a href="packing.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Як пакувати валізу</a></li>
+            <li><a href="budget.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Бюджетні подорожі</a></li>
+            <li><a href="safety.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Безпека в подорожах</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" style="margin: 0 15px; position: relative;">
+          <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Блог</a>
+          <ul class="dropdown-menu" >
+            <li><a href="travel-tips.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Поради для мандрівників</a></li>
+            <li><a href="destination-reviews.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Огляди напрямків</a></li>
+            <li><a href="travel-stories.html" style="padding: 10px; display: block; color: black; text-decoration: none;">Історії з подорожей</a></li>
+          </ul>
+        </li>
+        <li style="margin: 0 15px; position: relative;">
+          <a href="#" style="text-decoration: none; color: black; font-size: 18px; font-weight: bold; padding: 10px 15px;">Контакти</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Тури до Норвегії</h1>
+    <p>Обери пригоду, яка змінить твоє уявлення про світ</p>
+  </div>
+
+  <div class="filters">
+    <button onclick="filterTours('all')">Всі</button>
+    <button onclick="filterTours('похід')">Похід</button>
+    <button onclick="filterTours('круїз')">Круїз</button>
+    <button onclick="filterTours('сімейний')">Сімейний</button>
+  </div>
+
+  <div class="tour-grid" id="tourGrid">
+    <div class="tour-card похід">
+      <div class="badge">🔥 Популярно</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/View_of_trolltunga.jpg/1200px-View_of_trolltunga.jpg" alt="Язик Троля">
+      <div class="tour-card-content">
+        <h3>Язик Троля</h3>
+        <p>Найвідоміший похід Норвегії з неймовірними панорамами</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+    <div class="tour-card круїз">
+      <div class="badge">💎 Преміум</div>
+      <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/10/30/7e/6e.jpg" alt="Круїз фіордами">
+      <div class="tour-card-content">
+        <h3>Круїз по фіордах</h3>
+        <p>Спокійна подорож кораблем серед гір і водоспадів</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+    <div class="tour-card сімейний">
+      <img src="https://image.novasol.com/pic/1024/n33/202304220925/n33260_main_01.jpg" alt="Сімейна пригода">
+      <div class="tour-card-content">
+        <h3>Сімейна подорож</h3>
+        <p>Комфортний тур для родини з дітьми: природа + відпочинок</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+    <div class="tour-card похід">
+      <div class="badge">🆕 Новинка</div>
+      <img src="https://media.istockphoto.com/id/1165813140/photo/norwegian-hike.jpg?s=612x612" alt="Національні маршрути">
+      <div class="tour-card-content">
+        <h3>Національні маршрути</h3>
+        <p>Нові стежки та дикі краєвиди</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+    <div class="tour-card круїз">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/FjordNorway-Geirangerfjord.jpg" alt="Фіорди Гейрангера">
+      <div class="tour-card-content">
+        <h3>Фіорди Гейрангера</h3>
+        <p>Круїз до найглибших фіордів країни</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+    <div class="tour-card сімейний">
+      <img src="https://cdn.pixabay.com/photo/2017/01/20/00/30/norway-1992970_1280.jpg" alt="Природні парки">
+      <div class="tour-card-content">
+        <h3>Природні парки</h3>
+        <p>Ідеальний варіант для прогулянок із дітьми</p>
+        <a href="norway.html" class="book-btn">Переглянути</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-block">
+        <h3>📱 Ми в соцмережах</h3>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/carina.vidaa/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://t.me/pacific_k_ocean" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-block">
+        <h3>📞 Контакти</h3>
+        <p>Email: info@tripwise360.com</p>
+        <p>Телефон: +123 456 789</p>
+        <form class="newsletter">
+          <input type="email" placeholder="Ваш email" required>
+          <button type="submit">Підписатися</button>
+        </form>
+      </div>
+  
+      <div class="footer-block">
+        <h3> Інформація</h3>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-lock"></i> Політика конфіденційності</a></li>
+          <li><a href="#"><i class="fas fa-file-alt"></i> Умови використання</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <p class="footer-copy">© 2025 TripWise360 — Створено з ❤️ для мандрівників</p>
+  </footer>
+  <script>
+    function filterTours(category) {
+      const cards = document.querySelectorAll('.tour-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

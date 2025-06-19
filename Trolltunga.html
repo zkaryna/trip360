@@ -588,6 +588,63 @@
  html {
    overflow-x: hidden;
  }
+
+
+ /* фото до днів */
+ .day-block {
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.day-block h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #2980b9;
+}
+
+.day-block p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.slider {
+position: relative;
+max-width: 800px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.slider img {
+display: none;
+width: 100%;
+border-radius: 10px;
+}
+
+.slider img.active {
+display: block;
+}
+
+.slider-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0, 0, 0, 0.5);
+color: white;
+border: none;
+padding: 10px;
+cursor: pointer;
+}
+
+.slider-btn.prev {
+left: 10px;
+}
+
+.slider-btn.next {
+right: 10px;
+}
  /*@media (max-width: 768px) {
    header {
      display: none !important;
@@ -931,38 +988,10 @@
   </div>
 
   <section class="tour-section" style="max-width: 1000px; margin: 0 auto; padding: 60px 20px;">
-    <div class="day-block">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Heddal_Stave_Church_2.jpg" alt="Heddal Church">
-      <h3>День 1 Осло → Bondhusvatnet → Одда</h3>
-      <p>Рано вранці виїжджаємо з Осло та прямуємо на захід, у напрямку Рёльдаля (Røldal). Дорогою — зупинка на каву, щоб трохи перевести подих і насолодитися першими гірськими пейзажами.
-
-        У другій половині дня прибуваємо до села Sundal, звідки вирушаємо на легкий хайк до неймовірного озера Bondhusvatnet — справжньої смарагдової перлини з видом на льодовик.
-        
-        Після прогулянки заселяємося у затишну hytta (норвезький котедж), вечеряємо та відпочиваємо перед завтрішнім днем.</p>
-    </div>
-
-    <div class="day-block">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Preikestolen_-_Norway_%2828262761821%29.jpg/1920px-Preikestolen_-_Norway_%2828262761821%29.jpg" alt="Preikestolen">
-      <h3>День 2 – Похід на Язик Троля (Trolltunga)</h3>
-      <p>Ранній підйом — попереду один із найвідоміших треків Норвегії. Нас чекає маршрут до Язика Троля (Trolltunga) — видовищної скелі, що височіє над бірюзовими водами озера Ringedalsvatnet.
-
-        Похід займає близько 10–12 годин в обидва боки, тому готуємося до справжнього випробування сили духу та ніг. Для тих, хто не планує долати всю дистанцію, є можливість пройти частину маршруту й насолодитися краєвидами з панорамних точок уздовж стежки.
-        
-        А для тих, хто дійде до фінішу — незабутня панорама, фото на краю світу та відчуття перемоги, які залишаться з вами назавжди.
-        
-        Увечері — заслужений відпочинок, смачна вечеря та душевні розмови про пройдений день.</p>
-    </div>
-
-    <div class="day-block">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Stavanger_harbour_2019.jpg" alt="Ставангер">
-      <h3>День 3 – Одда → Vøringsfossen → Осло</h3>
-      <p>Після сніданку залишаємо Одду й вирушаємо мальовничою дорогою через національний парк Hardangervidda. По дорозі зупиняємось біля одного з найвеличніших водоспадів Норвегії — Vøringsfossen. Це справжнє диво природи з оглядовими платформами, мостами та ревом води.
-
-        Далі — дорога в напрямку Geilo, де зупиняємось на обід у затишному містечку серед гір.
-        
-        Після цього повертаємось до Осло, завершуючи нашу захопливу подорож.</p>
-    </div>
+    <div id="tour-days"></div>
   </section>
+  
+ 
 
   <section class="tour-includes compact" style="max-width: 1000px; margin: 0 auto; padding: 40px 20px;">
    
@@ -1000,6 +1029,7 @@
     <p>29-31 серпня</p>
     <a href="#booking" class="book-btn">Забронювати</a>
   </section>
+  
 
   <section class="past-gallery" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
     <h3 style="text-align: center; font-size: 28px; color: #34495e;">📸 Фото з минулих турів</h3>
@@ -1009,12 +1039,6 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/View_of_trolltunga.jpg" alt="Троллтунга">
       <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/10/30/7e/6e.jpg" alt="Круїз фіордами">
     </div>
-  </section>
-
-  <section id="booking" style="text-align: center; background-color: #ecf0f1; padding: 60px 20px; border-top: 3px solid #1abc9c;">
-    <h2>Хочеш приєднатися?</h2>
-    <p>Напиши нам у <a href="https://t.me/pacific_k_ocean" target="_blank">Telegram</a> або <a href="https://www.instagram.com/carina.vidaa/" target="_blank">Instagram</a>, щоб дізнатись більше або забронювати місце.</p>
-    <a href="https://t.me/pacific_k_ocean" class="book-btn" target="_blank">Забронювати</a>
   </section>
 
   <footer>
@@ -1045,5 +1069,166 @@
     </div>
     <p class="footer-copy" style="text-align: center; padding: 10px; font-size: 14px;">© 2025 TripWise360 — Створено з ❤️ для мандрівників</p>
   </footer>
+
+
+
+
+  
+    <!-- Модальне вікно -->
+
+    <div class="modal" id="booking-modal">
+      <div class="modal-content">
+        <h3>Забронювати тур</h3>
+        <form action="https://formsubmit.co/karenbrown2336@gmail.com" method="POST">
+          <input type="text" name="name" placeholder="Ваше ім'я" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <select name="date" required>
+            <option value="">Оберіть дату</option>
+            <option value="27-06">27 червня – 30 червня</option>
+            <option value="15-07">29 серпня – 31 серпня</option>
+          </select>
+          <textarea name="message" placeholder="Коментар або питання..."></textarea>
+    
+          <!-- Службові опції -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+    
+          <button type="submit" class="send-btn">Надіслати</button>
+        </form>
+        <button class="modal-close" onclick="closeModal()">Закрити</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('nav ul.menu');
+    
+        if (hamburger) {
+          hamburger.addEventListener('click', () => {
+            menu.classList.toggle('show');
+          });
+        }
+    
+        // Модальне вікно
+        const modal = document.getElementById('booking-modal');
+        const openButtons = document.querySelectorAll('a[href="#booking"]');
+    
+        openButtons.forEach(btn => {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault(); // зупиняємо скрол до якоря
+            modal.style.display = 'flex';
+          });
+        });
+      });
+    
+      function closeModal() {
+        const modal = document.getElementById('booking-modal');
+        modal.style.display = 'none';
+      }
+    </script>
+    
+
+    <script>
+      const daysData = [
+        {
+          title: ' День 1:  Осло → Bondhusvatnet → Одда',
+          text:  'Рано вранці виїжджаємо з Осло та прямуємо на захід, у напрямку Рёльдаля (Røldal). Дорогою — зупинка на каву, щоб трохи перевести подих і насолодитися першими гірськими пейзажами.У другій половині дня прибуваємо до села Sundal, звідки вирушаємо на легкий хайк до неймовірного озера Bondhusvatnet — справжньої смарагдової перлини з видом на льодовик. Після прогулянки заселяємося у затишну hytta (норвезький котедж), вечеряємо та відпочиваємо перед завтрішнім днем.',
+          images: [
+             'bondhusvatnet.jpg'
+
+          ]
+        },
+        {
+          title: '🧗‍♀️День 2 – Похід на Язик Троля (Trolltunga)',
+          text: 'Ранній підйом — попереду один із найвідоміших треків Норвегії. Нас чекає маршрут до Язика Троля (Trolltunga) — видовищної скелі, що височіє над бірюзовими водами озера Ringedalsvatnet. Похід займає близько 10–12 годин в обидва боки, тому готуємося до справжнього випробування сили духу та ніг. Для тих, хто не планує долати всю дистанцію, є можливість пройти частину маршруту й насолодитися краєвидами з панорамних точок уздовж стежки. А для тих, хто дійде до фінішу — незабутня панорама, фото на краю світу та відчуття перемоги, які залишаться з вами назавжди. Увечері — заслужений відпочинок, смачна вечеря та душевні розмови про пройдений день.',
+          images: [
+            'https://images.unsplash.com/photo-1504519560822-bed2d817f87f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJvbGx0dW5nYXxlbnwwfHwwfHx8MA%3D%3D',
+            'https://images.squarespace-cdn.com/content/v1/58c7ebde37c581e1410e266c/1527686531155-28DM0YILUJ390U7G3Y6S/tanya-tulupenko-133152-unsplash.jpg',
+            'https://www.datocms-assets.com/55942/1635176763-fjelltur-til-luftige-trolltunga.jpg?q=70&auto=format&w=1280&fit=crop&crop=faces,focalpoint&iptc=allow&h=960',
+            'https://www.stormberg.com/globalassets/inspirasjon/norgesferie/destinasjoner/ringedalsvatnet.jpeg?ref=BB5837F5AA&w=1280&scale=both'
+          ]
+        },
+        {
+          title: 'День 3 – Одда → Vøringsfossen → Осло',
+          text: 'Після сніданку залишаємо Одду й вирушаємо мальовничою дорогою через національний парк Hardangervidda. По дорозі зупиняємось біля одного з найвеличніших водоспадів Норвегії — Vøringsfossen. Це справжнє диво природи з оглядовими платформами, мостами та ревом води. Далі — дорога в напрямку Geilo, де зупиняємось на обід у затишному містечку серед гір. Після цього повертаємось до Осло, завершуючи нашу захопливу подорож.',
+          images: [
+            'https://www.norwayexcursions.com/wp-content/uploads/2023/12/header-flam-stegastein-viewpoint-and-naeroy-valley.jpg',
+            'https://www.whereintheworldistosh.com/wp-content/uploads/2016/09/IMG_5484.jpg',
+            'https://www.routesnorth.com/wp-content/uploads/2024/02/flam-church.jpeg',
+            'https://upload.wikimedia.org/wikipedia/commons/0/07/Nærøyfjorden_frå_Gudvangen.jpg',
+    
+          ]
+        }
+       
+      ];
+  
+      const tourDays = document.getElementById('tour-days');
+  
+      daysData.forEach(day => {
+        const block = document.createElement('div');
+        block.className = 'day-block';
+        block.innerHTML = `
+          <h3>${day.title}</h3>
+          <p>${day.text}</p>
+          <div class="slider">
+            ${day.images.map((src, idx) => `<img src="${src}" class="${idx === 0 ? 'active' : ''}" alt="Фото дня">`).join('')}
+            ${day.images.length > 1 ? `
+              <button class="slider-btn prev">❮</button>
+              <button class="slider-btn next">❯</button>
+            ` : ''}
+          </div>
+        `;
+        tourDays.appendChild(block);
+      });
+  
+      document.querySelectorAll('.slider').forEach(slider => {
+        const images = slider.querySelectorAll('img');
+        if (images.length < 2) return;
+        let index = 0;
+        const showImage = i => {
+          images.forEach((img, idx) => img.classList.toggle('active', idx === i));
+        };
+        slider.querySelector('.next').addEventListener('click', () => {
+          index = (index + 1) % images.length;
+          showImage(index);
+        });
+        slider.querySelector('.prev').addEventListener('click', () => {
+          index = (index - 1 + images.length) % images.length;
+          showImage(index);
+        });
+        showImage(index);
+      });
+  
+      function openModal() {
+        document.getElementById('booking-modal').style.display = 'flex';
+      }
+  
+      function closeModal() {
+        document.getElementById('booking-modal').style.display = 'none';
+      }
+  
+   
+          function openModal() {
+            document.getElementById('booking-modal').style.display = 'flex';
+          }
+        
+          function closeModal() {
+            document.getElementById('booking-modal').style.display = 'none';
+          }
+        
+          // Додати до ВСІХ кнопок класу .book-btn відкриття модального
+          document.querySelectorAll('.book-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+              e.preventDefault(); // запобігає переходу, якщо кнопка — <a>
+              openModal();
+            });
+          });
+      
+  
+  
+  
+        
+    </script>
 </body>
 </html>
